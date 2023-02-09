@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 
 class PageTwo extends StatelessWidget {
-  final String args2;
-  const PageTwo({super.key, required this.args2});
+  const PageTwo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.yellow.shade100,
-      child: Center(
-          child: ElevatedButton(
-        child: Text("Voltar para a primeira tela $args2"),
-        onPressed: () {
-          Navigator.of(context).pop(context);
-        },
-      )),
+    var argu = ModalRoute.of(context)!.settings.arguments as String;
+    return Scaffold(
+      appBar: AppBar(),
+      body: Container(
+        color: Colors.yellow.shade100,
+        child: Center(
+            child: ElevatedButton(
+          child: Text("Voltar para a primeira tela $argu"),
+          onPressed: () {
+            Navigator.of(context).pushNamed("/");
+          },
+        )),
+      ),
     );
   }
 }

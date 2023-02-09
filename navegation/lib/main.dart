@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:navegation/pages/page_one.dart';
+import 'package:navegation/pages/page_two.dart';
 
 main() {
   runApp(const MyApp());
@@ -10,9 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: PageOne(args: "Um"),
+      initialRoute: "/",
+      routes: {"/": (_) => const PageOne(), "/pageTwo": (_) => const PageTwo()},
     );
   }
 }
